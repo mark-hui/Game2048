@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_goal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@drawable/btn_orange"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="2048"
+                android:textSize="40sp"/><!--左上角标题-->
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+            
+            <TextView
+                android:id="@+id/score_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_gray"
+                android:gravity="center"
+                android:text="Score"
+                android:textSize="25sp"/><!--分数-->
+            
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/score_title"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_light_orange"
+                android:gravity="center"
+                android:text="10000"
+                android:textSize="15sp"/><!--分数显示-->
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/record_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_gray"
+                android:gravity="center"
+                android:text="Record"
+                android:textSize="25sp"/><!--记录-->
+
+            <TextView
+                android:id="@+id/record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/record_title"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_light_orange"
+                android:gravity="center"
+                android:text="20000"
+                android:textSize="15sp"/><!--记录显示-->
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/game_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/game_panel_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/><!--游戏界面-->
+    </FrameLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="3dp">
+        <!--同个布局中有多个按钮会默认为按钮栏，所以要加style消除按钮间隙，父子布局都有方法加-->
+        
+        <Button
+            android:id="@+id/btn_revert"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/btn_blue"
+            android:text="Revert"
+            android:textColor="@android:color/black"/><!--撤销退步-->
+        
+        <Button
+            android:id="@+id/btn_restart"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/btn_blue"
+            android:text="Restart"
+            android:textColor="@android:color/black"/><!--重开-->
+
+        <Button
+            android:id="@+id/btn_option"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/btn_blue"
+            android:text="Options"
+            android:textColor="@android:color/black"/><!--选项-->
+    </LinearLayout>
+
+</LinearLayout>
