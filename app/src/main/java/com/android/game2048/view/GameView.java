@@ -27,6 +27,8 @@ import java.util.List;
 
 public class GameView extends GridLayout implements View.OnTouchListener {
     //此为游戏界面中各种事件和算法的类
+    //此类为游戏区域容器的类，即gridlayout中可设置行列空格数量，添加的framelayout即gameitem即方格
+    //添加进布局中即形成游戏界面，在这里设置相关滑动和算法都是对游戏区域的计算
 
     private int mTarget;//目标分数
     private int mGameLines;//行数
@@ -230,10 +232,8 @@ public class GameView extends GridLayout implements View.OnTouchListener {
         for (int i = 0; i < mGameLines; i++) {
             for (int j = 0; j < mGameLines; j++) {
                 card = new GameItem(getContext(), 0);
-                //添加布局，因父布局为相对布局和帧布局，子项为帧布局，
-                // 而且设置了margin，所以会自动从左上角开始添加方格
-                addView(card, cardSize, cardSize);
-                mGameMatrix[i][j] = card;
+                addView(card, cardSize, cardSize);//gridlayout加子布局，自动从左上角开始
+                mGameMatrix[i][j] = card;//先左到右再从上到下
                 mBlanks.add(new Point(i, j));//开始全部为空格
             }
         }
@@ -323,8 +323,8 @@ public class GameView extends GridLayout implements View.OnTouchListener {
         ScaleAnimation sa = new ScaleAnimation(0.1f, 1, 0.1f, 1,//动画为中心向四周展开
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         sa.setDuration(100);//动画时长
-        target.setAnimation(null);//清空整个方块的动画
-        target.getItemView().setAnimation(sa);//设置方块中textview的动画
+        target.setAnimation(null);//为该视图设置下一个动画，null为无动画，target为整个游戏区域
+        target.getItemView().startAnimation(sa);//设置方块中textview的动画并立刻执行动画
     }
 
     //检查数字是不是2048的数字
